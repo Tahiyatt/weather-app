@@ -1,0 +1,316 @@
+
+html {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    color: white;
+    background-image: url("background-images/clear-day.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    transition: background-image 0.6s ease-in-out;
+}
+
+header {
+    display: block;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    background-color: rgba(0, 0, 0, .75);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    color: white;
+    padding: 10px;
+}
+
+nav h1 {
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+#search-form {
+    display: flex;
+    gap: 6px;
+    margin-right: 2rem;
+}
+
+nav input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    outline: none;
+    min-width: 160px;
+}
+
+nav input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+nav button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background: white;
+}
+
+
+main {
+    display: block;
+    margin-top: 106px;
+    padding: 0 16px 24px;
+}
+
+.section-title {
+    margin: 0 0 10px 4px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+
+.current-weather {
+    width: 100%;
+    min-height: 20vh;
+    margin: 0 0 10px 0;
+    padding: 20px 28px;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.current-weather-text h1,
+.current-weather-text h2,
+.current-weather-text p {
+    margin: 4px 0;
+}
+
+#current-condition {
+    font-size: 2.2rem;
+}
+
+#current-temp {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.current-icon {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+.week-forecast {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid black;
+    background-color: rgba(255, 0, 0, 0.6);
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.week-forecast-scroller {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x proximity;
+}
+
+.day-card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 120px;
+    padding: 14px 10px;
+    border-radius: 14px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.day-card .day-name {
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.day-card img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 6px;
+}
+
+.day-card .day-condition {
+    font-size: 0.8rem;
+    margin: 2px 0;
+    opacity: 0.9;
+}
+
+.day-card .day-temp {
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.day-card .day-temp .lo {
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+
+.lower-panels {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.hourly-forecast {
+    width: 43vw;
+    height: 80vh;
+    border: 3px green dashed;
+    background-color: rgba(255, 255, 0, 0.6);
+    border-radius: 20px;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    flex: 0 0 auto;
+}
+
+/* vertical list instead of a horizontal scroller, so it reads
+   long/tall the way you wanted */
+.hourly-forecast-scroller {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hour-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 8px 14px;
+    box-sizing: border-box;
+}
+
+.hour-card .hour-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin: 0;
+    width: 60px;
+}
+
+.hour-card img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.hour-card .hour-temp {
+    font-weight: 600;
+    margin: 0;
+    width: 40px;
+    text-align: right;
+}
+
+.lidar-map {
+    width: 46vw;
+    height: 80vh;
+    border: 3px white dashed;
+    background-color: rgba(0, 128, 0, 0.6);
+    border-radius: 20px;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+
+#map {
+    flex: 1;
+    min-height: 260px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.attribution {
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.75;
+    margin-top: 18px;
+}
+
+.attribution a {
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .lower-panels {
+        flex-wrap: wrap;
+    }
+
+    .hourly-forecast,
+    .lidar-map {
+        width: 100%;
+        height: 60vh;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+    }
+
+    .current-weather {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}

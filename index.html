@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Weather App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Weather App</h1>
+            <h1 id="location-name">Location: —</h1>
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search Location" autocomplete="off">
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <div class="current-weather">
+            <div class="current-weather-text">
+                <h2 id="curr-time">Current time:</h2>
+                <h1 id="current-condition">Weather: Condition</h1>
+                <h2 id="current-temp">Temperature</h2>
+                <p id="current-feels">Feels like: —</p>
+            </div>
+            <img id="current-icon" class="current-icon" src="" alt="">
+        </div>
+
+        <div class="week-forecast">
+            <p class="section-title">Weekly Forecast</p>
+            <div class="week-forecast-scroller" id="week-forecast-scroller">
+             
+            </div>
+        </div>
+
+        <div class="lower-panels">
+            <div class="hourly-forecast">
+                <p class="section-title">Hourly Forecast</p>
+                <div class="hourly-forecast-scroller" id="hourly-forecast-scroller">
+                  
+                </div>
+            </div>
+
+            <div class="lidar-map">
+                <p class="section-title">Map</p>
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <p class="attribution">
+            Weather data by <a href="https://openweathermap.org/" target="_blank" rel="noopener">OpenWeatherMap</a>.
+            Map by <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> &amp;
+            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors.
+            Icons by <a href="https://www.flaticon.com/free-icons/sunny" title="sunny icons">Freepik - Flaticon</a>.
+        </p>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
