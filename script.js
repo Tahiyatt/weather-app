@@ -6,7 +6,7 @@
    ========================================================= */
 
 // TODO: paste your OpenWeatherMap API key here (free tier works fine)
-const apiKey = "87f1291edf231f6b821663fd2c4e2c5c";
+const apiKey = API_KEY;
 
 // Default starting location: New York City
 let currentLat = 40.712772;
